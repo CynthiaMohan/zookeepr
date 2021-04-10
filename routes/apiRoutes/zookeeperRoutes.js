@@ -1,6 +1,6 @@
 const router = require('express').Router();
 
-const { filterByQuery, findById, createNewZookeeper, validateNewZookeeper, validateZookeeper } = require('../../lib/zookeepers');
+const { filterByQuery, findById, createNewZookeeper, validateZookeeper } = require('../../lib/zookeepers');
 const { zookeepers } = require('../../data/zookeepers.json');
 
 router.get('/zookeepers', (req, res) => {
@@ -12,9 +12,9 @@ router.get('/zookeepers', (req, res) => {
 });
 
 router.get('/zookeepers/:id', (req, res) => {
-    let results = findById(req.params.id, zookeepers);
-    if (results) {
-        res.json(results);
+    let result = findById(req.params.id, zookeepers);
+    if (result) {
+        res.json(result);
     }
     res.send(404);
 });
